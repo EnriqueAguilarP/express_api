@@ -12,7 +12,7 @@ app.listen(port, () => {
 })
 
 //HTTP methods
-app.get('v1/explorers', (req, res) => {
+app.get('/v1/explorers', (req, res) => {
     console.log(`Api explorers Get All request ${new Date()}`)
     const explorer1 = {id: 1, name: "EnriqueA"}
     const explorer2 = {id: 2, name: "EnriqueP"}
@@ -20,4 +20,10 @@ app.get('v1/explorers', (req, res) => {
     const explorer4 = {id: 4, name: "JesusP"}
     const explorers = [explorer1, explorer2, explorer3, explorer4]
     res.status(200).json(explorers)
+})
+
+app.post('/v1/explorers', (req, res) => {
+    console.log(`Api explorers Post request ${new Date()}`)
+    const requestBody = req.body
+    res.status(201).json({message: "Created"})
 })
